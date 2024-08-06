@@ -27,7 +27,10 @@ public class _00_BasicArray {
 		
 		// 예외 발생 : java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3
 		// 3번 인덱스가 존재하지 않음
-		lotto[3] = 50;
+		// lotto[3] = 50;		// 에러 발생
+		
+		lotto[0] += lotto[2];
+		System.out.println(lotto[0]);
 	}
 
 }
