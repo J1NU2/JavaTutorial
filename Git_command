@@ -14,6 +14,7 @@ git checkout 브랜치명 : 현재 브랜치 변경
 git add : 파일 스테이징 (옵션 : . * "파일명")
 git status : 스테이징된 파일들 확인
 git commit : 스테이징된 파일들을 커밋 (-m "" : 커밋 메시지 지정)
+git fetch : remote에 변경 사항이 있는지 확인
 git push : 커밋 내용을 local에서 remote로 등록 (-f : 강제 등록)
 > git push 옵션 리모트명 브랜치명
 git pull : remote에서 local로 파일 가져오기 (-f : 강제 가져오기)
