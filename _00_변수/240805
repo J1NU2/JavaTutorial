@@ -1,0 +1,53 @@
+Java 1일차
+- 변수 : 값을 저장하는 공간
+> 적으면 적을수록 좋다. 코드가 가벼워짐
+Javascript : var let const
+Java : int float double char String
+
+선언 : 자료형 변수명 = 초기값 : ex) int num = 0;
+자료형
+- 정수(int) : 1 2 3
+- 실수(double, float) : 1.23
+- 문자(char '') : a b 가 나
+- 문자열(String "") : a ab 가 가나다
+
+메모리 용량
+정수 : byte(1), short(2), int(4), long(8)
+실수 : float(4), double(8)
+
+` 1
+철수는 30세이면서 키는 180이다
+이때, 철수의 나이와 이름을 저장하고 철수의 나이를 +2 증가시킨다.
+
+String name = "철수";
+Int age = 30;
+Int cm = 180;
+
+Int total = age + 2;
+``
+String name = null;
+int age = 0;
+
+name = "철수";
+age = 30;
+age = age + 2;
+`
+
+JDK : 자바 개발에 필요한 도구
+JRE : 자바 실행에 필요한 도구
+자바 버전 확인 : java -version
+
+자바 = 객체지향언어, Class 단위로 객체 생성(정의)
+Class는 변수와 메소드(method)로 구성 (method=JS의 function)
+Class를 묶어 놓은 것이 패키지(Package)
+> Class 이름은 무조건 대문자로 시작
+
+연산자(Operator)
+1순위 : 증감 연산자 : ++ --
+2순위 : 산술 연산자 : + - * / %
+3순위 : 시프트 연산자 : >> << >>>
+4순위 : 비교 연산자 : > < >= <= == !=
+5순위 : 비트 연산자 : & | ^ ~(1순위)
+6순위 : 논리 연산자 : && || !(1순위)
+7순위 : 조건 연산자(삼항 연산자) : ? :
+8순위 : 대입 연산자 : = *= /= %= += -=
