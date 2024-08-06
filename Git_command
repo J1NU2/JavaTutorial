@@ -1,0 +1,20 @@
+Git Bash : Linux
+pwd : 현재 디렉토리 위치 확인(최상위 '/' 루트 디렉토리)
+cd : 디렉토리 이동
+ls : 현재 디렉토리 파일 확인
+
+git init : 깃 시작
+git config --global user.name "이름" : 유저 이름 지정
+git config --global user.email "이메일" : 유저 이메일 지정
+git remote : 현재 원격 레포지토리 확인 (-v : 상세)
+git remote add 리모트명 레포지토리링크 : remote 레포지토리 연결
+git branch : 현재 브랜치 확인
+git branch 브랜치명 : 브랜치 생성
+git checkout 브랜치명 : 현재 브랜치 변경
+git add : 파일 스테이징 (옵션 : . * "파일명")
+git status : 스테이징된 파일들 확인
+git commit : 스테이징된 파일들을 커밋 (-m "" : 커밋 메시지 지정)
+git push : 커밋 내용을 local에서 remote로 등록 (-f : 강제 등록)
+> git push 옵션 리모트명 브랜치명
+git pull : remote에서 local로 파일 가져오기 (-f : 강제 가져오기)
+> git pull 옵션 리모트명 브랜치명
