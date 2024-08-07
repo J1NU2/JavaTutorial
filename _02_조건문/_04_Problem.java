@@ -44,6 +44,27 @@ public class _04_Problem {
 		lotto[2] = 33;			// 초기값으로 값 초기화
 		int oddLottoNumber = lotto[2] + lotto[4];
 		System.out.println("홀수인 로또 번호의 총합 : " + oddLottoNumber);
+		// if문 사용
+		int oddTotal = 0;
+		if (lotto[0] % 2 != 0) {
+			oddTotal += lotto[0];
+		}
+		if (lotto[1] % 2 != 0) {
+			oddTotal += lotto[1];
+		}
+		if (lotto[2] % 2 != 0) {
+			oddTotal += lotto[2];
+		}
+		if (lotto[3] % 2 != 0) {
+			oddTotal += lotto[3];
+		}
+		if (lotto[4] % 2 != 0) {
+			oddTotal += lotto[4];
+		}
+		if (lotto[5] % 2 != 0) {
+			oddTotal += lotto[5];
+		}
+		System.out.println("홀수인 로또 번호의 총합 : " + oddTotal);
 		
 		// 문제6
 		System.out.println("---------- 문제 6 ----------");
@@ -91,14 +112,14 @@ public class _04_Problem {
 			System.out.println("두번째 새가 맞았습니다.");
 		} else if (x[2] == bullet[0] && y[2] == bullet[1]) {
 			System.out.println("세번째 새가 맞았습니다.");
+		} else {
+			System.out.println("맞추지 못했습니다.");
 		}
 		// 거리 증가
 		bullet[0]++;
 		bullet[1]++;
 		System.out.println("총알이 궤도를 벗어났습니다.");
-		
-		System.out.println("---------------------------");
-		
+				
 		// 만약, for문을 사용한다면?
 		System.out.println("-------- 문제 8 for문 -------");
 		bullet[0] = 3;			// 초기값으로 값 초기화
@@ -134,9 +155,7 @@ public class _04_Problem {
 			}
 		}
 		yMissile++;
-		
-		System.out.println("---------------------------");
-		
+				
 		// 만약, for문을 사용한다면?
 		System.out.println("-------- 문제 9 for문 -------");
 		for (int i = 0; i <= 20; i++) {
