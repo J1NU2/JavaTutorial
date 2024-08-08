@@ -118,12 +118,28 @@ public class _02_mission {
 		// 문제10 : 변수 2개와 for문 1개로 987654321의 모든 자릿수의 총합 구하기 (9+8+7+6+5+4+3+2+1=)
 		System.out.println("---------- 문제 10 ----------");
 		int digit = 987654321, digitSum = 0;	// 초기값을 가지는 digit 변수와 자릿수 총합을 저장할 digitSum 변수
-		for (int i=100000000; i>=1;) {			// i가 0이 될 때까지 반복시킬 반복문
+		for (int i=100000000; i>=1; i/=10) {	// i가 0이 될 때까지 반복시킬 반복문, i값을 10으로 나눠 다음 자릿수에 맞추도록 변경
 			digitSum += (digit/i);				// 각 자릿수에 해당하는 값을 digitSum에 저장
 			digit %= i;							// digit의 값에 i값을 나눈 나머지를 digit에 저장
-			i /= 10;							// i값을 10으로 나눠 다음 자릿수에 맞추도록 변경
 		}
 		System.out.println("9+8+7+6+5+4+3+2+1=" + digitSum);
+		
+		// 문제10+ : 배열
+		System.out.println("---------- 문제 10+ ----------");
+		int[] digitArray = {987654321, 0};		// digitArray 배열에 초기값(987654321)과 저장할값(0) 선언
+		for (int i=100000000; i>=1; i/=10) {	// i가 0이 될 때까지 반복시킬 반복문, i값을 10으로 나눠 다음 자릿수에 맞추도록 변경
+			digitArray[1] += (digitArray[0]/i);	// 각 자릿수에 해당하는 값을 digitArray[1]에 저장
+			digitArray[0] %= i;					// digitArray[0]의 값에 i값을 나눈 나머지를 digitArray[0]에 저장
+		}
+		System.out.println("9+8+7+6+5+4+3+2+1=" + digitArray[1]);
+
+		// 문제10++ : i를 제외한 변수2개 for문 1개
+		System.out.println("---------- 문제 10++ ----------");
+		int numberHap = 0;
+		for (int i=100000000; i>=1; i/=10) {
+			numberHap += (987654321 / i % 10);
+		}
+		System.out.println("9+8+7+6+5+4+3+2+1=" + numberHap);
 	}
 
 }
