@@ -140,6 +140,13 @@ public class _02_mission {
 			numberHap += (987654321 / i % 10);
 		}
 		System.out.println("9+8+7+6+5+4+3+2+1=" + numberHap);
+		
+		// 문제10+++ : 리팩토링
+		int aNum = 987654321, aNumSum = 0;
+		for (; aNum>0;) {
+			aNumSum += (aNum % 10);
+			aNum /= 10;
+		}
 	}
 
 }
