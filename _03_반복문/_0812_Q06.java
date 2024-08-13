@@ -11,7 +11,7 @@ public class _0812_Q06 {
 		String a ="23-56+45*2-56";	// 초기값
 		
 		String text = "";			// 문자열 a에서 숫자를 담을 변수
-		char arithmetic = '?';		// 문자열 a에서 연산자를 담을 변수
+		char arithmetic = ' ';		// 문자열 a에서 연산자를 담을 변수
 		int result = 0;				// 문자열 a의 사칙연산 최종값을 담을 변수
 		for (int i=0; i<a.length(); i++) {		// 0부터 문자열 a의 마지막 인덱스까지 반복
 			// ASCII Code에서 47을 기준으로 47이 넘어가면(48~) 0 1 2 3 4 ... 등의 숫자를
@@ -30,23 +30,23 @@ public class _0812_Q06 {
 				} else if (arithmetic == '+') {			// arithmetic의 문자가 + 일 경우의 조건
 					result += Integer.parseInt(text);
 					text = "";
-					arithmetic = '?';
+					arithmetic = ' ';
 				} else if (arithmetic == '-') {			// arithmetic의 문자가 - 일 경우의 조건
 					result -= Integer.parseInt(text);
 					text = "";
-					arithmetic = '?';
+					arithmetic = ' ';
 				} else if (arithmetic == '*') {			// arithmetic의 문자가 * 일 경우의 조건
 					result *= Integer.parseInt(text);
 					text = "";
-					arithmetic = '?';
+					arithmetic = ' ';
 				} else if (arithmetic == '/') {			// arithmetic의 문자가 / 일 경우의 조건
 					result /= Integer.parseInt(text);
 					text = "";
-					arithmetic = '?';
+					arithmetic = ' ';
 				} else if (arithmetic == '%') {			// arithmetic의 문자가 % 일 경우의 조건
 					result %= Integer.parseInt(text);
 					text = "";
-					arithmetic = '?';
+					arithmetic = ' ';
 				}
 				arithmetic = a.charAt(i);				// arithmetic를 a문자열의 i번째 사칙연산자로 변경
 			}
