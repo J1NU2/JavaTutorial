@@ -15,7 +15,23 @@ public class _0812_Q07 {
 				a[i+1] = a[i];					// i+1 인덱스에 i번째 인덱스의 값을 저장
 			}	// 가장 뒤에 큰 수를 배치
 		}
-		System.out.println(a[a.length - 1]);	// 길이-1은 배열의 인덱스이므로, a.length-1인 a배열의 마지막 인덱스 값을 출력
+		// 길이-1은 배열의 인덱스이므로, a.length-1인 a배열의 마지막 인덱스 값을 출력
+		System.out.println(a[a.length - 1]);
+	
+		// + 문제수정 : 변수 사용 가능
+		int[] b = {34,2,35,8,31,45};	// 초기값
+		int saveNum = 0;				// 큰 값을 저장하는 변수
+		for (int i=0; i<b.length - 1; i++) {	// 0부터 b배열의 최대길이-1까지 반복
+			if (b[i] > b[i+1]) {				// b배열의 i번째 인덱스의 값이 다음 인덱스의 값보다 클 경우의 조건
+				saveNum = b[i];					// saveNum 변수에 b배열의 i번째 값을 저장
+				b[i] = b[i+1];					// b배열의 i번째 값에 i+1번째 값을 저장
+				b[i+1] = saveNum;				// b배열의 i+1번째 saveNum 변수의 값을 저장
+				i = 0;							// 배열의 0번째 인덱스부터 다시 비교하기 위해 i값을 0으로 초기화 (i=0)
+			}
+		}
+		System.out.println(b[0] + "," + b[1] + "," + b[2] + "," + b[3] + "," + b[4] + "," + b[5]);
+		// 길이-1은 배열의 인덱스이므로, b.length-1인 b배열의 마지막 인덱스 값을 출력
+		System.out.println(b[b.length - 1]);
 	}
 
 }
