@@ -1,6 +1,6 @@
 package _04_객체;
 
-//import java.util.Arrays;
+import java.util.Arrays;
 import java.util.Random;
 
 public class _0814_Q06 {
@@ -38,7 +38,7 @@ public class _0814_Q06 {
 				sugNum = i+2;			// 현재의 로또 번호에 +1을 해줘야하는데, i는 0이므로 i+2를 sugNum변수에 저장
 			}
 		}
-		System.out.println("");
+//		System.out.println("");
 		System.out.println("추천 로또 넘버 : " + sugNum);
 		System.out.println("뽑은 횟수 : " + maxCount);
 	}
