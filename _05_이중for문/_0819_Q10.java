@@ -29,8 +29,8 @@ public class _0819_Q10 {
 					i = j-1;
 					break;
 				} else if (arr[j] == 1) {
-						i = j-1;
-						break;
+					i = j-1;
+					break;
 				} else {
 					cnt++;
 					if (cnt == size) {
