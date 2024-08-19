@@ -52,6 +52,7 @@ public class _0814_Q08 {
 				System.out.print(lotto[i] + " ");
 			}
 		}
+		in.close();
 	}
 
 }

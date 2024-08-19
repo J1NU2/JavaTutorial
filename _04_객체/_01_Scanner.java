@@ -31,6 +31,7 @@ public class _01_Scanner {
 				System.out.print(lotto[i] + " ");
 			}
 		}
+		scan.close();
 	}
 
 }

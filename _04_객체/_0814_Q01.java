@@ -21,6 +21,7 @@ public class _0814_Q01 {
 		System.out.println("두 숫자의 합 : " + sum);
 		
 		System.out.println("\n");
+		scan.close();
 		
 		// 반복문 사용
 		Scanner forScan = new Scanner(System.in);		// Scanner 객체 생성
@@ -31,6 +32,7 @@ public class _0814_Q01 {
 			forScan.nextLine();			// 버퍼 지우기
 		}
 		System.out.println("두 숫자의 합 : " + hap);
+		forScan.close();
 	}
 
 }

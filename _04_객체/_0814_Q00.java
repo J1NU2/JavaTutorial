@@ -18,7 +18,7 @@ public class _0814_Q00 {
 		} else {
 			System.out.println("짝수입니다.");
 		}
-		
+		scan.close();
 	}
 
 }

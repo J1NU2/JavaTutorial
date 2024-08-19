@@ -16,6 +16,7 @@ public class Refactoring {
 		}else {
 			System.out.println("홀수입니다.");
 		}
+		in0.close();
 		
 		
 //		1. 키보드로 두 개의 숫자를 입력받아서 합하는 프로그램을 작성하세요.
@@ -26,6 +27,7 @@ public class Refactoring {
 		in1.nextLine();
 		int b1=in1.nextInt();
 		System.out.println("두 숫자의 합은 "+(a1+b1)+"입니다.");
+		in1.close();
 
 		
 //		2. 행운의 숫자 인지를 판별해 보자
@@ -195,6 +197,7 @@ public class Refactoring {
 				System.out.println(lotto[i]);
 			}
 		}
+		in.close();
 	}
 
 }

@@ -1,6 +1,6 @@
 package _04_객체;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Random;
 
 public class _0814_Q06 {

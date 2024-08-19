@@ -147,6 +147,7 @@ public class _02_mission {
 			aNumSum += (aNum % 10);
 			aNum /= 10;
 		}
+		System.out.println("9+8+7+6+5+4+3+2+1=" + aNumSum);
 	}
 
 }
