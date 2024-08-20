@@ -25,23 +25,21 @@ public class _0820_Q04 {
 					System.out.println("end"+end);
 				}
 			}
-			
-			if (max == b[i]) {
-				System.out.println("i end"+end);
-				System.out.println("i max"+max);
-				
-				b[i] = end;
-				b[b.length-index] = max;
-				index++;
-				max = 0;
-				i = 0;
+			for (int k=0; k<b.length; k++) {
+				if(b[k] == max) {
+					b[k] = end;
+					b[b.length-index] = max;
+					index++;
+					max = 0;
+					break;
+				}
 			}
-			System.out.println(Arrays.toString(b));
+			// Arrays 클래스의 toString() 메소드
+			// 배열의 arr를 toString()의 파라미터로 넣어서 배열의 값들을 문자열 형태로 리턴해준다.
+			// System.out.println(Arrays.toString(arr));
+			System.out.println(Arrays.toString(b) + "\n");
 		}
 		
-		// Arrays 클래스의 toString() 메소드
-		// 배열의 arr를 toString()의 파라미터로 넣어서 배열의 값들을 문자열 형태로 리턴해준다.
-		// System.out.println(Arrays.toString(arr));
 		
 	}
 
