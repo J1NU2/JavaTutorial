@@ -11,15 +11,15 @@ public class _0819_Q06 {
 		int[] a = {34,55,23,56,34,45,34};	// 초기값
 		int[] b = {36,49};					// 초기값
 		
-		int cnt = 0;
-		for (int i=0; i<b.length; i++) {
-			for (int j=0; j<a.length; j++) {
-				if (a[j] > b[i]) {
+		int cnt = 0;		// 갯수를 저장할 변수
+		for (int i=0; i<b.length; i++) {		// b배열의 마지막 인덱스까지 반복
+			for (int j=0; j<a.length; j++) {	// a배열의 마지막 인덱스까지 반복
+				if (a[j] > b[i]) {		// a배열의 j번째 값이 b배열의 i번째 값보다 클 경우, 갯수 카운트를 증가(cnt++)
 					cnt++;
 				}
 			}
 			System.out.println("a배열의 값에는 " + b[i] + "번호보다 큰 숫자가 " + cnt + "개 있습니다.");
-			cnt = 0;
+			cnt = 0;		// 다음 수의 갯수를 구하기 위해 갯수 카운트 초기화(첫 for문 시작 시 적어줘도 된다.)
 		}
 	}
 

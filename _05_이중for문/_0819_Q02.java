@@ -12,8 +12,8 @@ public class _0819_Q02 {
 		 * **
 		 * *
 		 */
-		for (int i=0; i<5; i++) {
-			for (int j=5; j>i; j--) {
+		for (int i=0; i<5; i++) {		// i는 줄
+			for (int j=5; j>i; j--) {	// j는 별(*)
 				System.out.print("*");
 			}
 			System.out.println();

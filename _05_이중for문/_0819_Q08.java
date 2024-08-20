@@ -14,29 +14,36 @@ public class _0819_Q08 {
 		// 2 4 9
 		// 5 3 13	만약, 인덱스 끝이 5,5,5 라면
 		
+		// number : 제거할 번호
+		// count : 제거할 번호의 갯수
+		// startIndex : 제거할 번호의 시작 위치
+		// index : 인덱스를 저장할 변수
 		int number = 0, count = 1, startIndex = 0, index = 0;
-		for (int i=0; i<pang.length-1; i++) {
-			index++;
-			for (int j=i; j<pang.length; j++) {
-				startIndex = j+1;
+		for (int i=0; i<pang.length-1; i++) {	// pang배열의 마지막 인덱스 전까지 반복
+			index++;	// 인덱스 카운트 증가
+			for (int j=i; j<pang.length; j++) {	// pang배열의 마지막 인덱스까지 반복
+				startIndex = j+1;				// 시작 위치에 현재위치(j)+1의 값을 저장
+				// 1. pang배열의 i번째의 값과 그 다음 인덱스인 i+1번째의 값이 다르거나
+				// 2. i+2의 값이 pang배열의 최대 길이와 같은 경우의 조건
 				if (pang[i] != pang[i+1] || (i+2) == pang.length) {
-					startIndex -= index;
-					index = 0;
-					break;
+					startIndex -= index;	// 시작 위치에서 저장된 인덱스 카운트만큼을 뺀 값을 시작 위치에 저장
+					index = 0;				// 인덱스 카운트 초기화(0)
+					break;					// 반복문 종료
 				}
 			}
-
-			if (pang[i] == pang[i+1]) {
-				number = pang[i+1];
-				count++;
+			if (pang[i] == pang[i+1]) {		// pang배열의 i번째 값과 그 다음 인덱스인 i+1번째 값이 같은 경우의 조건
+				number = pang[i+1];			// 번호에 pang배열의 i+1번째 값을 저장
+				count++;					// 카운트 증가
+				// 1. i+2의 값이 pang배열의 최대 길이면서
+				// 2. 갯수가 3 이상일 경우의 조건
 				if ((i+2) == pang.length && count >= 3) {
 					System.out.println(number + " / " + count + " / " + startIndex);
 				}
-			} else if (pang[i] != pang[i+1]) {
-				if (count >= 3) {
+			} else if (pang[i] != pang[i+1]) {	// pang배열의 i번째 값과 그 다음 인덱스인 i+1의 값이 다를 경우의 조건
+				if (count >= 3) {				// 갯수가 3개 이상일 경우의 조건
 					System.out.println(number + " / " + count + " / " + startIndex);
 				}
-				count = 1;
+				count = 1;		// 갯수 초기화(1)
 			}
 		}
 		
