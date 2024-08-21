@@ -37,11 +37,11 @@ public class _0820_Q05 {
 //			System.out.println(carNumber);
 			for (int j=0; j<parking.length; j++) {
 				if (parking[j] > 1) {
-					if (j == parking.length-1) {
-						continue;
-					}
-					parking[j+1] = car;
-					parkingNum[j+1] = carIndex;
+//					if (j == parking.length-1) {
+//						continue;
+//					}
+//					parking[j+1] = car;
+//					parkingNum[j+1] = carIndex;
 				} else if (j == carNumber) {
 					parking[j] = car;
 					parkingNum[j] = carIndex;
