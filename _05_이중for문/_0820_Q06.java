@@ -13,14 +13,17 @@ public class _0820_Q06 {
 		char symbol = '@';
 		Scanner scan = new Scanner(System.in);
 		System.out.print("아이디 : ");
+		int symbolCnt = 0;
 		String text = scan.nextLine();
 		for (int i=0; i<text.length(); i++) {
 			if (text.charAt(i) == symbol) {
-				System.out.println("특수문자 '" + symbol + "'이 존재합니다.");
+//				System.out.println("특수문자 '" + symbol + "'이 존재합니다.");
+				symbolCnt++;
 			} else if (text.charAt(i) != symbol && i == (text.length()-1)) {
 				System.out.println(text);
 			}
 		}
+		System.out.println("특수문자가 " + symbolCnt + "개 존재합니다.");
 		scan.close();
 	}
 
