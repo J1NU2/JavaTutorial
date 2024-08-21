@@ -19,7 +19,7 @@ public class _0820_Q07 {
 		for (int i=0; i<text.length(); i++) {
 			for (int j=0; j<sign.length(); j++) {
 				if (text.charAt(i) == sign.charAt(j)) {
-					System.out.println("특수문자 '" + sign.charAt(j) + "'이 존재합니다.");
+//					System.out.println("특수문자 '" + sign.charAt(j) + "'이 존재합니다.");
 					symbolCnt++;
 				}
 			}
@@ -27,6 +27,7 @@ public class _0820_Q07 {
 				System.out.println(text);
 			}
 		}
+		System.out.println("특수문자가 " + symbolCnt + "개 존재합니다.");
 		scan.close();
 	}
 
