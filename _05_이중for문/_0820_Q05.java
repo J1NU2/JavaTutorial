@@ -28,12 +28,34 @@ public class _0820_Q05 {
 		int carIndex = 0;
 		int carNumber = 0;
 		
+		for (int i=0; i<carnum.length; i++) {
+			car = carnum[i];
+			carIndex = i;
+			carNumber = car%10;
+//			System.out.println(car);
+//			System.out.println(carIndex);
+//			System.out.println(carNumber);
+			for (int j=0; j<parking.length; j++) {
+				if (parking[j] > 1) {
+					if (j == parking.length-1) {
+						continue;
+					}
+					parking[j+1] = car;
+					parkingNum[j+1] = carIndex;
+				} else if (j == carNumber) {
+					parking[j] = car;
+					parkingNum[j] = carIndex;
+				}
+			}
+		}
 		
+		/*
 		for (int i=0; i<parking.length; i++) {
 			for (int j=0; j<carnum.length; j++) {
 				car = carnum[j];
 				carIndex = j;
-				carNumber = carnum[j]%10;
+				carNumber = car%10;
+				
 				if (parking[carNumber] > 100) {
 					continue;
 				}
@@ -41,6 +63,7 @@ public class _0820_Q05 {
 				parkingNum[carNumber] = carIndex;
 			}
 		}
+		*/
 		// Arrays 클래스의 toString() 메소드
 		// 배열의 arr를 toString()의 파라미터로 넣어서 배열의 값들을 문자열 형태로 리턴해준다.
 		// System.out.println(Arrays.toString(arr));
