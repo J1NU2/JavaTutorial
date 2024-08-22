@@ -57,7 +57,7 @@ public class _0821_miniProject {
 		// 굳이 배열 변수를 집어넣지 않아도 다음과 같은 형태로 사용이 가능하다.
 		// int[][] test = {{1,2,3,4,5}, {1,2,3,4,5}};
 		String[][] level0 = {level1, level2, level3, level4, level5, level6, level7, level8, level9, level10};
-		String[][] level = {level1, level2};
+		String[][] level = {level1, level2, level3};
 		
 //		System.out.println(level1.length);
 //		System.out.println(level2.length);
@@ -72,6 +72,7 @@ public class _0821_miniProject {
 		
 		// 게임 시작
 		while (true) {
+			int levelCount = 0;
 			int jumsu = 0;
 			int totalJumsu = 0;
 			System.out.print("▶ 선택해주세요. [ 1 : 시작 / 0 : 종료 ] ");
@@ -79,8 +80,40 @@ public class _0821_miniProject {
 			
 			// 1을 입력받은 경우, 게임 시작
 			if (startEnd.equals("1")) {
+				// 레벨을 선택하는 반복문
+				while (true) {
+					System.out.println("▶ 레벨을 선택해주세요 [ 1~6 : 한글 / 7~10 : 영어 ] ");
+					String selectLevel = scan.nextLine();
+					if (selectLevel.equals("1")) {
+						levelCount = 0;		// 1단계
+					} else if (selectLevel.equals("2")) {
+						levelCount = 1;		// 2단계
+					} else if (selectLevel.equals("3")) {
+						levelCount = 2;		// 3단계
+					} else if (selectLevel.equals("4")) {
+						levelCount = 3;		// 4단계
+					} else if (selectLevel.equals("5")) {
+						levelCount = 4;		// 5단계
+					} else if (selectLevel.equals("6")) {
+						levelCount = 5;		// 6단계
+					} else if (selectLevel.equals("7")) {
+						levelCount = 6;		// 7단계
+					} else if (selectLevel.equals("8")) {
+						levelCount = 7;		// 8단계
+					} else if (selectLevel.equals("9")) {
+						levelCount = 8;		// 9단계
+					} else if (selectLevel.equals("10")) {
+						levelCount = 9;		// 10단계
+					// 1~10이 아닌 것을 입력받은 경우
+					// while의 반복 조건이 true이기 때문에 출력문을 출력한 뒤 현재 while문 반복
+					} else {
+						System.out.println("다시 입력해주세요");
+						continue;
+					}
+					break;
+				}
 				System.out.println("");
-				for (int i=0; i<level.length; i++) {	// level
+				for (int i=levelCount; i<level.length; i++) {	// level
 					// 점수가 존재하는 경우(=처음 화면으로 돌아가기), i반복문 종료
 					if (jumsu != 0) {
 						jumsu = 0;
@@ -98,7 +131,7 @@ public class _0821_miniProject {
 						// 단어를 맞췄을 경우, 점수 증가(+20)
 						if (text.equals(levelText)) {
 							avgCount++;
-							jumsu += 100;
+							jumsu += 20;
 							System.out.println("\n정답입니다~");
 							System.out.println("점수 +20");
 							System.out.printf("현재 점수 : " + jumsu + " / 정확도 : " + "%.1f" + "％\n\n", ((avgCount/j)*100));
