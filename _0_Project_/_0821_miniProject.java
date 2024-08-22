@@ -285,7 +285,7 @@ public class _0821_miniProject {
 				System.out.println("※ 다시 선택해주세요. \n");
 			}
 		}
-		scan.close();
+		scan.close();		// Scanner 입력 후 사용 종료
 	}
 
 }
