@@ -80,10 +80,9 @@ public class _0821_miniProject {
 			
 			// 1을 입력받은 경우, 게임 시작
 			if (startEnd.equals("1")) {
-				System.out.println("");
 				// 레벨을 선택하는 반복문
 				while (true) {
-					System.out.print("▶ 레벨을 선택해주세요 [ 1~6 : 한글 / 7~10 : 영어 ] ");
+					System.out.print("\n▶ 레벨을 선택해주세요 [ 1~6 : 한글 / 7~10 : 영어 / 0 : 처음 화면으로 ] ");
 					String selectLevel = scan.nextLine();
 					if (selectLevel.equals("1")) {
 						levelCount = 0;		// 1단계
@@ -105,7 +104,10 @@ public class _0821_miniProject {
 						levelCount = 8;		// 9단계
 					} else if (selectLevel.equals("10")) {
 						levelCount = 9;		// 10단계
-					// 1~10이 아닌 것을 입력받은 경우
+					} else if (selectLevel.equals("0")) {
+						System.out.println("처음 화면으로 돌아갑니다.");
+						levelCount = level.length;		// i반복문이 돌지 않도록 설정
+					// 0,1~10이 아닌 것을 입력받은 경우
 					// while의 반복 조건이 true이기 때문에 출력문을 출력한 뒤 현재 while문 반복
 					} else {
 						System.out.println("다시 입력해주세요");
