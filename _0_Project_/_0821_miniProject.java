@@ -7,9 +7,11 @@ import java.util.Scanner;
 public class _0821_miniProject {
 
 	public static void main(String[] args) {
+		// 입력을 위한 객체(Scanner), 랜덤한 값을 위한 객체(Random) 생성
 		Scanner scan = new Scanner(System.in);
 		Random ran = new Random();
 		
+		// 각 단계별 초기값
 		String[] level1 = {"ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", 
 							"ㅍ", "ㅎ", "ㅏ", "ㅑ", "ㅓ", "ㅕ", "ㅗ", "ㅛ", "ㅜ", "ㅠ", "ㅡ", "ㅣ"};
 		String[] level2 = {"가", "나", "다", "라", "마", "바", "사", "아", "자", "차", "카", "타", "파", "하", 
@@ -50,6 +52,10 @@ public class _0821_miniProject {
 							"Antidisestablishmentarianism", "Honorificabilitudinitatibus", 
 							"Thyroparathyroidectomized", "Dichlorodifluoromethane", "Incomprehensibilities"};
 		
+		// 2차원 배열
+		// 만약, level의 0번 인덱스에 있는 배열의 2번 인덱스의 값은 "ㄷ"이 된다. (=level[0][2])
+		// 굳이 배열 변수를 집어넣지 않아도 다음과 같은 형태로 사용이 가능하다.
+		// int[][] test = {{1,2,3,4,5}, {1,2,3,4,5}};
 		String[][] level0 = {level1, level2, level3, level4, level5, level6, level7, level8, level9, level10};
 		String[][] level = {level1, level2};
 		
@@ -62,36 +68,39 @@ public class _0821_miniProject {
 //		System.out.println(level[0].length);
 //		System.out.println(level[0][0].length());
 //		System.out.println(Arrays.toString(level[1]));
-		
-		
 //		System.out.println(level[0][ran.nextInt(level[0].length)]);
 		
+		// 게임 시작
 		while (true) {
 			int jumsu = 0;
 			int totalJumsu = 0;
 			System.out.print("▶ 선택해주세요. [ 1 : 시작 / 0 : 종료 ] ");
 			String startEnd = scan.nextLine();
 			
+			// 1을 입력받은 경우, 게임 시작
 			if (startEnd.equals("1")) {
 				System.out.println("");
 				for (int i=0; i<level.length; i++) {	// level
+					// 점수가 존재하는 경우(=처음 화면으로 돌아가기), i반복문 종료
 					if (jumsu != 0) {
 						jumsu = 0;
 						break;
 					}
 					System.out.println("▶ " + (i+1) + "단계 ◀");
-					for (int j=1; j<=15; j++) {			// 각 level의 게임 플레이
+					for (int j=1; j<=15; j++) {			// 각 level에서의 시도 횟수(15회)
 						String levelText = level[i][ran.nextInt(level[i].length)];
 						System.out.println("( " + j + " / 15 )");
 						System.out.println("단어 : " + levelText);
 						System.out.print("입력 : ");
 						String text = scan.nextLine();
 						
+						// 단어를 맞췄을 경우, 점수 증가(+20)
 						if (text.equals(levelText)) {
 							jumsu += 100;
 							System.out.println("\n정답입니다~");
 							System.out.println("점수 +20");
 							System.out.println("현재 점수 : " + jumsu + "\n");
+						// 단어를 맞추지 못했을 경우, 점수 감소(-10)
 						} else {
 							jumsu -= 10;
 							System.out.println("\n틀렸습니다!");
@@ -99,114 +108,146 @@ public class _0821_miniProject {
 							System.out.println("현재 점수 : " + jumsu + "\n");
 						}
 						
+						// 시도 횟수를 다 썼음에도 100점을 넘기지 못한 경우
 						while (j == 15) {
-							// 점수가 30점이하일 경우, 초기화
+							// 1. 점수가 30점이하일 경우, 초기화
 							if (jumsu <= 30) {
 								System.out.println((i+1) + "단계 실패..");
 								System.out.println("총 점수 : " + jumsu);
 								System.out.print("\n▶ 선택해주세요. [ 1 : 1단계부터 도전 / 2 : 처음 화면으로 ] ");
 								String select = scan.nextLine();
+								// 1을 입력받은 경우, 1단계부터 도전
 								if (select.equals("1")) {
 									System.out.println("1단계부터 다시 도전합니다. \n");
-									jumsu = 0;
+									jumsu = 0;		// 점수 초기화
+									// i반복문이 종료된 뒤 증감식(i++)으로 인해 증가되므로, 
+									// 0(1단계)부터 시작하기 위해 i값을 -1로 설정
 									i = -1;
-									break;
+								// 2를 입력받은 경우, 처음 화면으로 이동
 								} else if (select.equals("2")) {
 									System.out.println("처음 화면으로 돌아갑니다. \n");
-									jumsu = 1;
-									break;
+									jumsu = 1;		// 점수가 0인 경우 i반복문을 종료할 수 있도록 jumsu값을 1로 설정
+								// 1,2가 아닌 것을 입력받은 경우, 여기까지 실행한 뒤 현재 while문 다시 시작
 								} else {
 									System.out.println("※ 다시 선택해주세요. \n");
 									continue;
 								}
 							}
 							
-							// 점수가 31점부터 99점일 경우, 재시작
+							// 2. 점수가 31점부터 99점일 경우, 재시작
 							if (jumsu > 30 && jumsu < 100) {
 								System.out.println((i+1) + "단계 종료, 100점을 노려보세요!");
 								System.out.println("총 점수 : " + jumsu);
 								System.out.print("\n▶ 선택해주세요. [ 1 : 재도전 / 2 : 처음 화면으로 ] ");
 								String select = scan.nextLine();
+								// 1을 입력받은 경우, 현재 단계 재도전
 								if (select.equals("1")) {
 									System.out.println((i+1) + "단계를 재도전합니다. \n");
-									jumsu = 0;
+									jumsu = 0;		// 점수 초기화
+									// i반복문이 종료된 뒤 증감식(i++)으로 인해 증가되므로, 
+									// 현재 단계부터 시작하기 위해 i값을 i-1로 설정
 									i -= 1;
-									break;
+								// 2를 입력받은 경우, 처음 화면으로 이동
 								} else if (select.equals("2")) {
 									System.out.println("처음 화면으로 돌아갑니다. \n");
-									break;
+								// 1,2가 아닌 것을 입력받은 경우, 여기까지 실행한 뒤 현재 while문 다시 시작
 								} else {
 									System.out.println("※ 다시 선택해주세요. \n");
 									continue;
 								}
 							}
-							break;
+							break;		// 1,2번 조건의 선택이 완료된 경우 while문 종료
 						}
 						
 						// 점수가 100점일 경우, 다음 단계
 						if (jumsu >= 100) {
+							// 최고 단계를 클리어한 경우
 							if (i == level.length-1) {
 								System.out.println((i+1) + "단계 클리어!");
 								System.out.println("누적 점수 : " + totalJumsu);
+								// 선택지를 선택하기 위한 while문
 								while (true) {
 									System.out.print("\n▶ 선택해주세요. [ 1 : 1단계부터 도전 / 2 : 재도전 / 3 : 처음 화면으로 ] ");
 									String select = scan.nextLine();
+									// 1을 입력받은 경우, 1단계부터 도전(while문 종료)
 									if (select.equals("1")) {
 										System.out.println("1단계부터 다시 도전합니다. \n");
-										totalJumsu += jumsu;
-										jumsu = 0;
+										totalJumsu += jumsu;	// 누적 점수에 현재 점수 추가
+										jumsu = 0;		// 점수 초기화
+										// i반복문이 종료된 뒤 증감식(i++)으로 인해 증가되므로, 
+										// 0(1단계)부터 시작하기 위해 i값을 -1로 설정
 										i = -1;
 										break;
+									// 2를 입력받은 경우, 현재 단계 재도전(while문 종료)
 									} else if (select.equals("2")) {
 										System.out.println((i+1) + "단계를 재도전합니다. \n");
-										totalJumsu += jumsu;
-										jumsu = 0;
+										totalJumsu += jumsu;	// 누적 점수에 현재 점수 추가
+										jumsu = 0;		// 점수 초기화
+										// i반복문이 종료된 뒤 증감식(i++)으로 인해 증가되므로, 
+										// 현재 단계부터 시작하기 위해 i값을 i-1로 설정
 										i -= 1;
 										break;
+									// 3를 입력받은 경우, 처음 화면으로 이동(while문 종료)
 									} else if (select.equals("3")) {
 										System.out.println("처음 화면으로 돌아갑니다. \n");
 										break;
+									// 1,2,3이 아닌 것을 입력받은 경우
+									// while의 반복 조건이 true이기 때문에 출력문을 출력한 뒤 현재 while문 반복
 									} else {
 										System.out.println("※ 다시 선택해주세요.");
 									}
 								}
-								break;
+								break;		// 조건 선택이 끝난 경우 j반복문 종료
 							}
 							System.out.println((i+1) + "단계 클리어!");
 							System.out.println("총 점수 : " + jumsu);
 //							System.out.println("누적 점수 : " + totalJumsu);
+							// 선택지를 선택하기 위한 while문
 							while (true) {
 								System.out.print("\n▶ 선택해주세요. [ 1 : 1단계부터 도전 / 2 : 재도전 / 3 : 다음 단계 / 4 : 처음 화면으로 ] ");
 								String select = scan.nextLine();
+								// 1을 입력받은 경우, 1단계부터 도전(while문 종료)
 								if (select.equals("1")) {
 									System.out.println("1단계부터 다시 도전합니다. \n");
-									jumsu = 0;
+									jumsu = 0;		// 점수 초기화
+									// i반복문이 종료된 뒤 증감식(i++)으로 인해 증가되므로, 
+									// 0(1단계)부터 시작하기 위해 i값을 -1로 설정
 									i = -1;
 									break;
+								// 2를 입력받은 경우, 현재 단계 재도전(while문 종료)
 								} else if (select.equals("2")) {
 									System.out.println((i+1) + "단계를 재도전합니다. \n");
-									jumsu = 0;
+									jumsu = 0;		// 점수 초기화
+									// i반복문이 종료된 뒤 증감식(i++)으로 인해 증가되므로, 
+									// 현재 단계부터 시작하기 위해 i값을 i-1로 설정
 									i -= 1;
 									break;
+								// 3을 입력받은 경우, 다음 단계 도전(while문 종료)
 								} else if (select.equals("3")) {
 									System.out.println("다음 단계로 넘어갑니다. \n");
-									totalJumsu += jumsu;
-									jumsu = 0;
+									totalJumsu += jumsu;	// 누적 점수에 현재 점수 추가
+									jumsu = 0;		// 점수 초기화
 									break;
+								// 4를 입력받은 경우, 처음 화면으로 이동(while문 종료)
 								} else if (select.equals("4")) {
 									System.out.println("처음 화면으로 돌아갑니다. \n");
 									break;
+								// 1,2,3,4가 아닌 것을 입력받은 경우
+								// while의 반복 조건이 true이기 때문에 출력문을 출력한 뒤 현재 while문 반복
 								} else {
 									System.out.println("※ 다시 선택해주세요.");
 								}
 							}
-							break;
+							break;		// 조건 선택이 끝난 경우 j반복문 종료
 						}
 					}
 				}
+			// 0을 입력받은 경우, 게임 종료
 			} else if (startEnd.equals("0")) {
 				System.out.println("게임을 종료했습니다.");
 				break;
+			// 1,0이 아닌 것을 입력받은 경우
+			// while의 반복 조건이 true이기 때문에 출력문을 출력한 뒤 현재 while문 반복
 			} else {
 				System.out.println("※ 다시 선택해주세요. \n");
 			}
