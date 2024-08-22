@@ -86,6 +86,7 @@ public class _0821_miniProject {
 						jumsu = 0;
 						break;
 					}
+					float avgCount = 0;
 					System.out.println("▶ " + (i+1) + "단계 ◀");
 					for (int j=1; j<=15; j++) {			// 각 level에서의 시도 횟수(15회)
 						String levelText = level[i][ran.nextInt(level[i].length)];
@@ -96,16 +97,17 @@ public class _0821_miniProject {
 						
 						// 단어를 맞췄을 경우, 점수 증가(+20)
 						if (text.equals(levelText)) {
+							avgCount++;
 							jumsu += 100;
 							System.out.println("\n정답입니다~");
 							System.out.println("점수 +20");
-							System.out.println("현재 점수 : " + jumsu + "\n");
+							System.out.printf("현재 점수 : " + jumsu + " / 정확도 : " + "%.1f" + "％\n\n", ((avgCount/j)*100));
 						// 단어를 맞추지 못했을 경우, 점수 감소(-10)
 						} else {
 							jumsu -= 10;
 							System.out.println("\n틀렸습니다!");
 							System.out.println("점수 -10");
-							System.out.println("현재 점수 : " + jumsu + "\n");
+							System.out.printf("현재 점수 : " + jumsu + " / 정확도 : " + "%.1f" + "％\n\n", ((avgCount/j)*100));
 						}
 						
 						// 시도 횟수를 다 썼음에도 100점을 넘기지 못한 경우
@@ -113,7 +115,7 @@ public class _0821_miniProject {
 							// 1. 점수가 30점이하일 경우, 초기화
 							if (jumsu <= 30) {
 								System.out.println((i+1) + "단계 실패..");
-								System.out.println("총 점수 : " + jumsu);
+								System.out.printf("총 점수 : " + jumsu + " / 정확도 : " + "%.1f" + "％\n\n", ((avgCount/j)*100));
 								System.out.print("\n▶ 선택해주세요. [ 1 : 1단계부터 도전 / 2 : 처음 화면으로 ] ");
 								String select = scan.nextLine();
 								// 1을 입력받은 경우, 1단계부터 도전
@@ -137,7 +139,7 @@ public class _0821_miniProject {
 							// 2. 점수가 31점부터 99점일 경우, 재시작
 							if (jumsu > 30 && jumsu < 100) {
 								System.out.println((i+1) + "단계 종료, 100점을 노려보세요!");
-								System.out.println("총 점수 : " + jumsu);
+								System.out.printf("총 점수 : " + jumsu + " / 정확도 : " + "%.1f" + "％\n\n", ((avgCount/j)*100));
 								System.out.print("\n▶ 선택해주세요. [ 1 : 재도전 / 2 : 처음 화면으로 ] ");
 								String select = scan.nextLine();
 								// 1을 입력받은 경우, 현재 단계 재도전
@@ -161,6 +163,7 @@ public class _0821_miniProject {
 						
 						// 점수가 100점일 경우, 다음 단계
 						if (jumsu >= 100) {
+							totalJumsu += jumsu;	// 누적 점수에 현재 점수 추가
 							// 최고 단계를 클리어한 경우
 							if (i == level.length-1) {
 								System.out.println((i+1) + "단계 클리어!");
@@ -172,7 +175,6 @@ public class _0821_miniProject {
 									// 1을 입력받은 경우, 1단계부터 도전(while문 종료)
 									if (select.equals("1")) {
 										System.out.println("1단계부터 다시 도전합니다. \n");
-										totalJumsu += jumsu;	// 누적 점수에 현재 점수 추가
 										jumsu = 0;		// 점수 초기화
 										// i반복문이 종료된 뒤 증감식(i++)으로 인해 증가되므로, 
 										// 0(1단계)부터 시작하기 위해 i값을 -1로 설정
@@ -181,7 +183,6 @@ public class _0821_miniProject {
 									// 2를 입력받은 경우, 현재 단계 재도전(while문 종료)
 									} else if (select.equals("2")) {
 										System.out.println((i+1) + "단계를 재도전합니다. \n");
-										totalJumsu += jumsu;	// 누적 점수에 현재 점수 추가
 										jumsu = 0;		// 점수 초기화
 										// i반복문이 종료된 뒤 증감식(i++)으로 인해 증가되므로, 
 										// 현재 단계부터 시작하기 위해 i값을 i-1로 설정
@@ -200,8 +201,8 @@ public class _0821_miniProject {
 								break;		// 조건 선택이 끝난 경우 j반복문 종료
 							}
 							System.out.println((i+1) + "단계 클리어!");
-							System.out.println("총 점수 : " + jumsu);
-//							System.out.println("누적 점수 : " + totalJumsu);
+							System.out.printf("총 점수 : " + jumsu + " / 정확도 : " + "%.1f" + "％\n", ((avgCount/j)*100));
+							System.out.println("누적 점수 : " + totalJumsu);
 							// 선택지를 선택하기 위한 while문
 							while (true) {
 								System.out.print("\n▶ 선택해주세요. [ 1 : 1단계부터 도전 / 2 : 재도전 / 3 : 다음 단계 / 4 : 처음 화면으로 ] ");
@@ -209,6 +210,7 @@ public class _0821_miniProject {
 								// 1을 입력받은 경우, 1단계부터 도전(while문 종료)
 								if (select.equals("1")) {
 									System.out.println("1단계부터 다시 도전합니다. \n");
+									totalJumsu -= jumsu;	// totalJumsu에 jumsu을 뺀 값을 저장
 									jumsu = 0;		// 점수 초기화
 									// i반복문이 종료된 뒤 증감식(i++)으로 인해 증가되므로, 
 									// 0(1단계)부터 시작하기 위해 i값을 -1로 설정
@@ -217,6 +219,7 @@ public class _0821_miniProject {
 								// 2를 입력받은 경우, 현재 단계 재도전(while문 종료)
 								} else if (select.equals("2")) {
 									System.out.println((i+1) + "단계를 재도전합니다. \n");
+									totalJumsu -= jumsu;	// totalJumsu에 jumsu을 뺀 값을 저장
 									jumsu = 0;		// 점수 초기화
 									// i반복문이 종료된 뒤 증감식(i++)으로 인해 증가되므로, 
 									// 현재 단계부터 시작하기 위해 i값을 i-1로 설정
@@ -225,7 +228,6 @@ public class _0821_miniProject {
 								// 3을 입력받은 경우, 다음 단계 도전(while문 종료)
 								} else if (select.equals("3")) {
 									System.out.println("다음 단계로 넘어갑니다. \n");
-									totalJumsu += jumsu;	// 누적 점수에 현재 점수 추가
 									jumsu = 0;		// 점수 초기화
 									break;
 								// 4를 입력받은 경우, 처음 화면으로 이동(while문 종료)
