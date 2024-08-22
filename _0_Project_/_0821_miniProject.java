@@ -56,8 +56,8 @@ public class _0821_miniProject {
 		// 만약, level의 0번 인덱스에 있는 배열의 2번 인덱스의 값은 "ㄷ"이 된다. (=level[0][2])
 		// 굳이 배열 변수를 집어넣지 않아도 다음과 같은 형태로 사용이 가능하다.
 		// int[][] test = {{1,2,3,4,5}, {1,2,3,4,5}};
-		String[][] level0 = {level1, level2, level3, level4, level5, level6, level7, level8, level9, level10};
-		String[][] level = {level1, level2, level3};
+//		String[][] level = {level1, level2, level3};
+		String[][] level = {level1, level2, level3, level4, level5, level6, level7, level8, level9, level10};
 		
 //		System.out.println(level1.length);
 //		System.out.println(level2.length);
