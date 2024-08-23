@@ -169,7 +169,8 @@ public class _1박2이 {
 								String select = scan.nextLine();
 								if (select.equals("1")) {
 									System.out.println("1단계부터 다시 도전합니다. \n");
-									totalJumsu -= jumsu;
+									totalJumsu = 0;
+									saveJumsu = 0;
 									jumsu = 0;
 									i = -1;
 									break;
