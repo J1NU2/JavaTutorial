@@ -89,7 +89,7 @@ public class _1박2이 {
 						// 단어를 맞췄을 경우, 점수 증가(+20)
 						if (text.equals(levelText)) {
 							avgCount++;
-							jumsu += 100;
+							jumsu += 20;
 							System.out.println("\n★ 정답입니다(점수+20)");
 						// 단어를 맞추지 못했을 경우, 점수 감소(-10)
 						} else {
