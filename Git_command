@@ -19,3 +19,8 @@ git push : 커밋 내용을 local에서 remote로 등록 (-f : 강제 등록)
 > git push 옵션 리모트명 브랜치명
 git pull : remote에서 local로 파일 가져오기 (-f : 강제 가져오기)
 > git pull 옵션 리모트명 브랜치명
+git log : commit 목록 확인
+git reset 옵션 HEAD "파일명" : 
+> --soft : 스테이징된 상태, 워킹 디렉터리 파일 보존
+> --mixed : 언스테이징된 상태, 워킹 디렉터리 파일 보존(기본 옵션)
+> --hard : 언스테이징된 상태, 워킹 디렉터리 파일 삭제
