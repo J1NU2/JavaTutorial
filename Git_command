@@ -24,3 +24,4 @@ git reset 옵션 HEAD "파일명" :
 > --soft : 스테이징된 상태, 워킹 디렉터리 파일 보존
 > --mixed : 언스테이징된 상태, 워킹 디렉터리 파일 보존(기본 옵션)
 > --hard : 언스테이징된 상태, 워킹 디렉터리 파일 삭제
+git clone repo링크 : Github repository의 파일을 local로 복제
