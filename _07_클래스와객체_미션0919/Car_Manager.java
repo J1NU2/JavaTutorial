@@ -46,9 +46,11 @@ public class Car_Manager {
 	public void add() {
 		Car_Object car = new Car_Object();
 		
-		System.out.print("소유자의 이름을 입력해주세요 : ");
+		System.out.println("소유자의 이름을 입력해주세요.");
+		System.out.print("소유자명 : ");
 		car.user = in.nextLine();
-		System.out.print("자동차 번호를 입력해주세요 : ");
+		System.out.println("자동차 번호를 입력해주세요.");
+		System.out.print("자동차 번호 : ");
 		car.carNum = in.nextLine();
 		System.out.println();
 		
@@ -65,6 +67,7 @@ public class Car_Manager {
 			System.out.println("어떤 조건으로 검색하실건가요?");
 			System.out.println("1. 소유자명");
 			System.out.println("2. 자동차 번호");
+			System.out.println("3. 소유자명과 자동차 번호로 검색");
 			
 			System.out.print("선택지를 선택해주세요 : ");
 			String selNum = in.nextLine();
@@ -73,7 +76,7 @@ public class Car_Manager {
 			if (selNum.equals("1")) {
 				System.out.println("소유자명으로 검색합니다.");
 				
-				System.out.println("소유자명을 입력해주세요.");
+				System.out.println("소유자의 이름을 입력해주세요.");
 				System.out.print("소유자명 : ");
 				String user = in.nextLine();
 				
@@ -90,9 +93,25 @@ public class Car_Manager {
 				System.out.print("자동차 번호 : ");
 				String carNum = in.nextLine();
 				
-				System.out.println(carNum);
 				for (int i=0; i<carList.length; i++) {
 					if (carList[i] != null && carList[i].carNum.equals(carNum)) {
+						carList[i].carInfo();
+					}
+				}
+				break;
+			} else if (selNum.equals("3")) {
+				System.out.println("소유자명과 자동차 번호로 검색합니다.");
+				
+				System.out.println("소유자의 이름을 입력해주세요.");
+				System.out.print("소유자명 : ");
+				String user = in.nextLine();
+				System.out.println("자동차 번호를 입력해주세요.");
+				System.out.print("자동차 번호 : ");
+				String carNum = in.nextLine();
+				System.out.println();
+				
+				for (int i=0; i<carList.length; i++) {
+					if (carList[i] != null && carList[i].user.equals(user) && carList[i].carNum.equals(carNum)) {
 						carList[i].carInfo();
 					}
 				}
@@ -114,9 +133,11 @@ public class Car_Manager {
 	}
 	
 	public void delete() {
-		System.out.print("소유자의 이름을 입력해주세요 : ");
+		System.out.println("소유자의 이름을 입력해주세요.");
+		System.out.print("소유자명 : ");
 		String user = in.nextLine();
-		System.out.print("자동차 번호를 입력해주세요 : ");
+		System.out.println("자동차 번호를 입력해주세요.");
+		System.out.print("자동차 번호 : ");
 		String carNum = in.nextLine();
 		System.out.println();
 		
