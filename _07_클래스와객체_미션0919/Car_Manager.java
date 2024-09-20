@@ -78,7 +78,7 @@ public class Car_Manager {
 				String user = in.nextLine();
 				
 				for (int i=0; i<carList.length; i++) {
-					if (carList[i] != null && carList[i].user == user) {
+					if (carList[i] != null && carList[i].user.equals(user)) {
 						carList[i].carInfo();
 					}
 				}
@@ -92,7 +92,7 @@ public class Car_Manager {
 				
 				System.out.println(carNum);
 				for (int i=0; i<carList.length; i++) {
-					if (carList[i] != null && carList[i].carNum == carNum) {
+					if (carList[i] != null && carList[i].carNum.equals(carNum)) {
 						carList[i].carInfo();
 					}
 				}
@@ -121,8 +121,7 @@ public class Car_Manager {
 		System.out.println();
 		
 		for (int i=0; i<carList.length; i++) {
-//			if (carList[i] != null && carList[i].user == user && carList[i].carNum == carNum) {
-			if (carList[i].user == user && carList[i].carNum == carNum) {
+			if (carList[i] != null && carList[i].user.equals(user) && carList[i].carNum.equals(carNum)) {
 				carList[i].carInfo();
 				System.out.println("해당 차의 정보를 삭제하였습니다.");
 				carList[i] = null;
