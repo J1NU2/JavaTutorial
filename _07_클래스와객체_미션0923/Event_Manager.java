@@ -11,7 +11,7 @@ public class Event_Manager {
 	// 입력을 위한 객체
 	Scanner in = new Scanner(System.in);
 	
-	public Event_Manager() {
+	public void Event_Manager() {
 		while (true) {
 			menu();
 			String selNum = "";

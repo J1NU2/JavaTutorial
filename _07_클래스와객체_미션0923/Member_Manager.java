@@ -11,7 +11,7 @@ public class Member_Manager {
 	// 입력을 위한 객체
 	Scanner in = new Scanner(System.in);
 	
-	public Member_Manager() {
+	public void Member_Manager() {
 		while (true) {
 			menu();
 			String selNum = "";

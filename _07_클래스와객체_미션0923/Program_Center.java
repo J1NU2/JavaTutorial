@@ -3,8 +3,9 @@ package _07_클래스와객체_미션0923;
 import java.util.Scanner;
 
 public class Program_Center {
-	Member_One[] mList = new Member_One[10];
-	Event_One[] eList = new Event_One[10];
+	// 객체 생성 후 객체에 대한 주소를 각 변수에 저장
+	Member_Manager member = new Member_Manager();
+	Event_Manager event = new Event_Manager();
 	
 	// 입력을 위한 객체
 	Scanner in = new Scanner(System.in);
@@ -24,10 +25,10 @@ public class Program_Center {
 				break;
 			} else if (selNum.equals("1")) {
 				System.out.println("\n고객관리 프로그램을 실행합니다.");
-				new Member_Manager();
+				member.Member_Manager();
 			} else if (selNum.equals("2")) {
 				System.out.println("\n이벤트관리 프로그램을 실행합니다.");
-				new Event_Manager();
+				event.Event_Manager();
 			} else {
 				System.out.println("\n올바른 선택이 아닙니다.");
 				System.out.println("다시 입력해주세요.");
