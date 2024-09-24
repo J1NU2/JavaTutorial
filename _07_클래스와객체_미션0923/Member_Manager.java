@@ -18,7 +18,7 @@ public class Member_Manager {
 	public void menu() {
 		while (true) {
 			System.out.println("\n▷ 고객관리 메뉴(Menu) ◁");
-			System.out.println("0.프로그램 종료");
+			System.out.println("0.이전 메뉴로 나가기");
 			System.out.println("1.가입하기");
 			System.out.println("2.정보보기");
 			System.out.println("3.수정하기");
@@ -51,22 +51,39 @@ public class Member_Manager {
 			}
 		}
 	}
+	// 아이디 중복 처리 기능을 수행할 메서드
+	private boolean memberIdCheck(String mId) {
+		for (int i=0; i<mListLeng; i++) {
+			if (mList[i] != null) {
+				if (mList[i].mId.equals(mId)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 	// 고객 가입에 대한 기능을 수행할 메서드
 	private void add() {
 		Member_One member = new Member_One();
 		
 		System.out.println("\n아이디를 입력해주세요.");
 		System.out.print("아이디 : ");
-		member.mId = in.nextLine();
-		System.out.println("\n이름을 입력해주세요.");
-		System.out.print("이름 : ");
-		member.mName = in.nextLine();
-		
-		for (int i=0; i<mListLeng; i++) {
-			if (mList[i] == null) {
-				System.out.println("\n기입된 정보로 가입되었습니다.");
-				mList[i] = member;
-				break;
+		String id = in.nextLine();
+		if (memberIdCheck(id)) {
+			System.out.println("\n중복된 아이디가 존재합니다.");
+		} else {
+			member.mId = id;
+			System.out.println("\n이름을 입력해주세요.");
+			System.out.print("이름 : ");
+			String name = in.nextLine();
+			member.mName = name;
+			
+			for (int i=0; i<mListLeng; i++) {
+				if (mList[i] == null) {
+					System.out.println("\n기입된 정보로 가입되었습니다.");
+					mList[i] = member;
+					break;
+				}
 			}
 		}
 	}
