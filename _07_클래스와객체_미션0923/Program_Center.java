@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Program_Center {
 	// 객체 생성 후 객체에 대한 주소를 각 변수에 저장
+	// 주소를 저장하기 전에 변수만 설정
 	Member_Manager member = null;
 	Event_Manager event = null;
 	
@@ -11,6 +12,8 @@ public class Program_Center {
 	Scanner in = new Scanner(System.in);
 	
 	Program_Center() {
+		// 생성자에서 객체 초기화 처리
+		// 생성된 객체가 존재하지 않는다면(null) 객체를 생성한다.
 		if (member == null) {
 			member = new Member_Manager();
 		}

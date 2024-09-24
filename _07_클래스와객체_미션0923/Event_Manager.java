@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Event_Manager {
 	// 이벤트에 대한 정보가 담긴 주소를 저장할 객체 생성
 	// 고객관리 메뉴에서 현재 진행중인 이벤트를 보기 위해서 static변수로 설정
+	// 한 패키지 내 모든 클래스에서 사용이 가능하다.
+	// 프로그램이 실행될 때 메모리에 할당되며, 프로그램이 종료되면 할당된 메모리도 사라진다.
 	static Event_One[] eList = new Event_One[10];
 	
 	static int eListLeng = eList.length;

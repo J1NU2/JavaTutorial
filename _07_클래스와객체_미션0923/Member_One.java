@@ -18,9 +18,9 @@ public class Member_One {
 		
 		return member;
 	}
-	// 입력받은 인자를 이름에 저장하여 반환해줄 메서드
-	// 인자 : Member_Manager클래스의 mod()메서드 내 지역변수 modName의 값
-	// 매개변수 : String n
+	// 메서드 호출 시 입력받은 매개변수 값을 이름에 저장하여 반환해줄 메서드
+	// 매개변수 값 : setmName메서드 호출 시 주어지는 매개변수 값이 넘어온다.
+	// 매개변수 정의 : String n
 	public void setmName(String n) {
 		mName = n;
 	}
