@@ -4,17 +4,30 @@ import java.util.Scanner;
 
 public class Program_Center {
 	// 객체 생성 후 객체에 대한 주소를 각 변수에 저장
-	Member_Manager member = new Member_Manager();
-	Event_Manager event = new Event_Manager();
+	Member_Manager member = null;
+	Event_Manager event = null;
 	
 	// 입력을 위한 객체
 	Scanner in = new Scanner(System.in);
 	
 	public Program_Center() {
+		if (member == null) {
+			member = new Member_Manager();
+		}
+		if (event == null) {
+			event = new Event_Manager();
+		}
+		menu();
+	}
+	// 기능에 대한 메뉴를 보여줄 메서드
+	public void menu() {
 		while (true) {
-			menu();
-			String selNum = "";
+			System.out.println("\n▷ 메뉴(Menu) ◁");
+			System.out.println("0.프로그램 종료");
+			System.out.println("1.고객관리 프로그램");
+			System.out.println("2.이벤트관리 프로그램");
 			
+			String selNum = "";
 			System.out.println("\n▷ 메뉴를 선택해주세요.");
 			System.out.print("▷ 선택할 번호 : ");
 			selNum = in.nextLine();
@@ -25,21 +38,14 @@ public class Program_Center {
 				break;
 			} else if (selNum.equals("1")) {
 				System.out.println("\n고객관리 프로그램을 실행합니다.");
-				member.Member_Manager();
+				member.menu();
 			} else if (selNum.equals("2")) {
 				System.out.println("\n이벤트관리 프로그램을 실행합니다.");
-				event.Event_Manager();
+				event.menu();
 			} else {
 				System.out.println("\n올바른 선택이 아닙니다.");
 				System.out.println("다시 입력해주세요.");
 			}
 		}
-	}
-	// 기능에 대한 메뉴를 보여줄 메서드
-	public void menu() {
-		System.out.println("\n▷ 메뉴(Menu) ◁");
-		System.out.println("0.프로그램 종료");
-		System.out.println("1.고객관리 프로그램");
-		System.out.println("2.이벤트관리 프로그램");
 	}
 }
