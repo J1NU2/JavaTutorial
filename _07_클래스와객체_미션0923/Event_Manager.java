@@ -19,7 +19,7 @@ public class Event_Manager {
 	public void menu() {
 		while (true) {
 			System.out.println("\n▷ 이벤트관리 메뉴(Menu) ◁");
-			System.out.println("0.프로그램 종료");
+			System.out.println("0.이전 메뉴로 나가기");
 			System.out.println("1.이벤트 등록하기");
 			System.out.println("2.이벤트 전체보기");
 			
