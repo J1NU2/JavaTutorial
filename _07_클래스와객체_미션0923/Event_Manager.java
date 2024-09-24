@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Event_Manager {
 	// 이벤트에 대한 정보가 담긴 주소를 저장할 객체 생성
-	Event_One[] eList = new Event_One[10];
+	// 고객관리 메뉴에서 현재 진행중인 이벤트를 보기 위해서 static변수로 설정
+	static Event_One[] eList = new Event_One[10];
 	
-	int eListLeng = eList.length;
+	static int eListLeng = eList.length;
 	
 	// 입력을 위한 객체
 	Scanner in = new Scanner(System.in);
@@ -64,7 +65,7 @@ public class Event_Manager {
 		}
 	}
 	// 등록된 이벤트의 정보를 보여주는 기능을 수행할 메서드
-	private void eventList() {
+	public static void eventList() {
 		for (int i=0; i<eListLeng; i++) {
 			if (eList[i] != null) {
 				eList[i].eventList();

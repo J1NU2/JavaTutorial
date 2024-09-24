@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Member_Manager {
 	// 고객에 대한 정보가 담긴 주소를 저장할 객체 생성
-	Member_One[] mList = new Member_One[10];
+	static Member_One[] mList = new Member_One[10];
 	
 	int mListLeng = mList.length;
 	
@@ -14,6 +14,7 @@ public class Member_Manager {
 	Member_Manager() {
 		// menu();
 	}
+	
 	// 기능에 대한 메뉴를 보여줄 메서드
 	public void menu() {
 		while (true) {
@@ -23,6 +24,7 @@ public class Member_Manager {
 			System.out.println("2.정보보기");
 			System.out.println("3.수정하기");
 			System.out.println("4.삭제하기");
+			System.out.println("5.현재 진행중인 이벤트 보기");
 			
 			String selNum = "";
 			System.out.println("\n▷ 메뉴를 선택해주세요.");
@@ -45,6 +47,9 @@ public class Member_Manager {
 			} else if (selNum.equals("4")) {
 				System.out.println("\n고객님의 탈퇴를 진행합니다.");
 				del();
+			} else if (selNum.equals("5")) {
+				System.out.println("\n현재 진행중인 이벤트 목록을 출력합니다.");
+				Event_Manager.eventList();
 			} else {
 				System.out.println("\n올바른 선택이 아닙니다.");
 				System.out.println("다시 입력해주세요.");

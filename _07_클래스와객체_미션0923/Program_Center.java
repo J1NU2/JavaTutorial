@@ -10,7 +10,7 @@ public class Program_Center {
 	// 입력을 위한 객체
 	Scanner in = new Scanner(System.in);
 	
-	public Program_Center() {
+	Program_Center() {
 		if (member == null) {
 			member = new Member_Manager();
 		}
