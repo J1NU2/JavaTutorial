@@ -11,11 +11,20 @@ public class Member_Manager {
 	// 입력을 위한 객체
 	Scanner in = new Scanner(System.in);
 	
-	public void Member_Manager() {
+	Member_Manager() {
+		// menu();
+	}
+	// 기능에 대한 메뉴를 보여줄 메서드
+	public void menu() {
 		while (true) {
-			menu();
-			String selNum = "";
+			System.out.println("\n▷ 고객관리 메뉴(Menu) ◁");
+			System.out.println("0.프로그램 종료");
+			System.out.println("1.가입하기");
+			System.out.println("2.정보보기");
+			System.out.println("3.수정하기");
+			System.out.println("4.삭제하기");
 			
+			String selNum = "";
 			System.out.println("\n▷ 메뉴를 선택해주세요.");
 			System.out.print("▷ 선택할 번호 : ");
 			selNum = in.nextLine();
@@ -41,15 +50,6 @@ public class Member_Manager {
 				System.out.println("다시 입력해주세요.");
 			}
 		}
-	}
-	// 기능에 대한 메뉴를 보여줄 메서드
-	public void menu() {
-		System.out.println("\n▷ 고객관리 메뉴(Menu) ◁");
-		System.out.println("0.프로그램 종료");
-		System.out.println("1.가입하기");
-		System.out.println("2.정보보기");
-		System.out.println("3.수정하기");
-		System.out.println("4.삭제하기");
 	}
 	// 고객 가입에 대한 기능을 수행할 메서드
 	private void add() {

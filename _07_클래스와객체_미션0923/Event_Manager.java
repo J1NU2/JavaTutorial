@@ -11,11 +11,19 @@ public class Event_Manager {
 	// 입력을 위한 객체
 	Scanner in = new Scanner(System.in);
 	
-	public void Event_Manager() {
+	Event_Manager() {
+		// menu();
+	}
+	
+	// 기능에 대한 메뉴를 보여줄 메서드
+	public void menu() {
 		while (true) {
-			menu();
-			String selNum = "";
+			System.out.println("\n▷ 이벤트관리 메뉴(Menu) ◁");
+			System.out.println("0.프로그램 종료");
+			System.out.println("1.이벤트 등록하기");
+			System.out.println("2.이벤트 전체보기");
 			
+			String selNum = "";
 			System.out.println("\n▷ 메뉴를 선택해주세요.");
 			System.out.print("▷ 선택할 번호 : ");
 			selNum = in.nextLine();
@@ -35,14 +43,6 @@ public class Event_Manager {
 				System.out.println("다시 입력해주세요.");
 			}
 		}
-	}
-	
-	// 기능에 대한 메뉴를 보여줄 메서드
-	public void menu() {
-		System.out.println("\n▷ 이벤트관리 메뉴(Menu) ◁");
-		System.out.println("0.프로그램 종료");
-		System.out.println("1.이벤트 등록하기");
-		System.out.println("2.이벤트 전체보기");
 	}
 	// 이벤트 등록에 대한 기능을 수행할 메서드
 	private void add() {
