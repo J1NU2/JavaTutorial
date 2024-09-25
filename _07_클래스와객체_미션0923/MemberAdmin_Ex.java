@@ -1,5 +1,6 @@
 package _07_클래스와객체_미션0923;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 // 고객관리 클래스
@@ -9,7 +10,8 @@ public class MemberAdmin_Ex {
 	// MemberOne_Ex 객체의 주소값을 저장할 배열(길이 5)를 생성한 것이다.
 	// 하지만 배열도 객체이다.
 	// mList는 참조변수이고 MemberOne_Ex객체의 주소를 저장한 배열의 주소를 저장하고 있다.
-	MemberOne_Ex[] mList = new MemberOne_Ex[5];
+//	MemberOne_Ex[] mList = new MemberOne_Ex[5];
+	ArrayList<MemberOne_Ex> mList = new ArrayList<>();	// 배열을 리스트로 변경
 
 	MemberAdmin_Ex() {
 		// menu();
@@ -35,6 +37,16 @@ public class MemberAdmin_Ex {
 	}
 	
 	public boolean duplexIDcheck(String id) {
+		for (int i=0; i<mList.size(); i++) {
+			if (mList.get(i).id.equals(id)) {
+				// return이 된다면 함수가 종료되고 호출부로 이동한다.
+				// break를 사용할 필요가 없다.
+				return true;
+			}
+		}
+		return false;
+		
+		/* 배열일 때 코드
 		for (int i=0; i<mList.length; i++) {
 			if (mList[i] != null) {
 				if (mList[i].id.equals(id)) {
@@ -45,6 +57,7 @@ public class MemberAdmin_Ex {
 			}
 		}
 		return false;
+		*/
 	}
 
 	private void addUser() {
@@ -60,23 +73,33 @@ public class MemberAdmin_Ex {
 			String name = in.nextLine();
 			temp.name = name;
 			
+			mList.add(temp);
+			
+			/* 배열일 때 코드
 			for (int i=0; i<mList.length; i++) {
 				if (mList[i] == null) {
 					mList[i] = temp;
 					break;
 				}
 			}
-			temp = null;	// temp에 저장된 주소값을 사용 후 null 처리
-			// in.close();		// Scanner에 필요한 자원 반납
+			*/
 		}
+		temp = null;	// temp에 저장된 주소값을 사용 후 null 처리
+		// in.close();		// Scanner에 필요한 자원 반납
 	}
 	
 	private void allListUser() {
+		for (int i=0; i<mList.size(); i++) {
+			mList.get(i).prt();
+		}
+		
+		/* 배열일 때 코드
 		for (int i=0; i<mList.length; i++) {
 			if (mList[i] != null) {
 				mList[i].prt();
 			}
 		}
+		*/
 	}
 
 }

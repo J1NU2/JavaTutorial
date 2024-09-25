@@ -1,5 +1,6 @@
 package _07_클래스와객체_미션0923;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 // 이벤트관리 클래스
@@ -9,7 +10,8 @@ public class EventAdmin_Ex {
 	// EventOne_Ex 객체의 주소값을 저장할 배열(길이 5)를 생성한 것이다.
 	// 하지만 배열도 객체이다.
 	// eList는 참조변수이고 EventOne_Ex객체의 주소를 저장한 배열의 주소를 저장하고 있다.
-	EventOne_Ex[] eList = new EventOne_Ex[5];
+//	EventOne_Ex[] eList = new EventOne_Ex[5];
+	ArrayList<EventOne_Ex> eList = new ArrayList<>();	// 배열을 리스트로 변경
 
 	EventAdmin_Ex() {
 		// menu();
@@ -44,21 +46,31 @@ public class EventAdmin_Ex {
 		String memo = in.nextLine();
 		temp.memo = memo;
 		
+		eList.add(temp);
+		
+		/* 배열일 때 코드
 		for (int i=0; i<eList.length; i++) {
 			if (eList[i] == null) {
 				eList[i] = temp;
 				break;
 			}
 		}
+		*/
 		temp = null;	// temp에 저장된 주소값을 사용 후 null 처리
 		// in.close();		// Scanner에 필요한 자원 반납
 	}
 	
 	private void allListEvent() {
+		for (int i=0; i<eList.size(); i++) {
+			eList.get(i).prt();
+		}
+		
+		/* 배열일 때 코드
 		for (int i=0; i<eList.length; i++) {
 			if (eList[i] != null) {
 				eList[i].prt();
 			}
 		}
+		*/
 	}
 }
