@@ -20,6 +20,7 @@ public class MemberAdmin_Ex {
 	public void menu() {
 		Scanner in = new Scanner(System.in);
 		while (true) {
+			System.out.println(mList.size());
 			System.out.println("0.이전메뉴");
 			System.out.println("1.고객등록");
 			System.out.println("2.전체보기");
