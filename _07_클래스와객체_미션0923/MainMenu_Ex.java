@@ -29,9 +29,9 @@ public class MainMenu_Ex {
 		if (eventAdm == null) {
 			eventAdm = new EventAdmin_Ex();
 		}
-		menu();
+		menu();		// 메서드 call
 	}
-	
+	// 메서드 정의
 	public void menu() {
 		Scanner in = new Scanner(System.in);
 		while (true) {
