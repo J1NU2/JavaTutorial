@@ -121,9 +121,10 @@ public class WordManager {
 			for (int i=0; i<wList.size(); i++) {
 				if (wList.get(i).english.equals(en)) {
 					wList.remove(i);
-					System.out.println("'"+ en + "' 해당 영어단어가 삭제되었습니다.");
+					i--;
 				}
 			}
+			System.out.println("'"+ en + "' 해당 영어단어가 삭제되었습니다.");
 		} else {
 			System.out.println(en + " : 해당 영어단어는 등록되어있지 않습니다.");
 		}
