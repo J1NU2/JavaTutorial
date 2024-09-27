@@ -1,0 +1,95 @@
+객체 클래스 리스트
+1. 배운거만 이용해서 = 배운거 내에서 만들기
+	- 영어단어장 만들기
+	- 카센터
+	- 고양이 강아지
+	- 기차
+	- 고객관리/이벤트관리
+2. 색다른거 하기
+	1. 관리
+	2. 게임
+
+[ 동물의 숲 ]
+캐릭터
+1. 집 꾸미기
+2. 상점 간 거래	=	액자 어항
+3. 잠자기
+4. 채집,낚시 	=> 	행동
+	Item클래스
+	이름, 갯수, 
+5. 채집물 판매	=>	채집물 파는거(가격 랜덤)
+
+
+
+▷ 나중에 추가 생각해볼 것 : 경험치 레벨.. 에 따른 행동 선택
+
+
+▶(모두) : 프로그램 시작 클래스 : Main
+	System.out.println("동숲");
+	new Character_Manager
+▶(연정님) : 캐릭터 관리 클래스 : Character_Manager
+	ArrayList<Character_One> chr = new ArrayList<>();
+	Shop shop = null
+		if (shop == null) {
+			shop = new Shop 
+			shop.saveShop(shop) }
+	기능
+		메뉴		menu()
+		캐릭터 생성	chrAdd()		// ArrayList chr 리스트 3-5명 제한(if문 size < 5)
+		캐릭터 수정	chrMod()
+		캐릭터 삭제	chrDel()
+		캐릭터 선택	chrSel()		// 게임 시작
+▶(연정님) : 하나의 캐릭터 클래스 : Character_One
+	Shop shop = null
+	Active active = new Active
+	변수
+		캐릭터 이름	String cname
+		캐릭터 성별	String cgender
+		캐릭터 돈		int cmoney
+		캐릭터 물품	ArrayList<String> cobj = new ArrayList<>()
+	기능
+		메뉴		menu()
+		나의 물품보기	myObjectList()	// cobj 변수 리스트 목록 보여주기
+		나의 물품팔기	myObjectSell()
+					shop.item(i).oname.add(cobj.get(i))		// 물품 이름
+					shop.item(i).oprice.add(입력받은값)		// 물품 가격
+		상점 둘러보기	goShop()
+					shop.menu()
+		외부 활동하기	goActive()
+					active.menu()
+
+		Shop 주소 받기	saveShop(Shop shop)
+					this.shop = shop
+▶(나) : 행동(채집, 낚시) 클래스 : Active
+	변수
+		채집		String[] colleclist	// 10개
+			[나뭇잎,나뭇가지,지렁이,애벌레,무당벌레,달팽이,나비,잠자리,장수풍뎅이,사슴벌레]
+				확률
+				0~1 : 50%	0 1 2 3 4
+				2~7 : 40%	5 6 7 8
+				8~9 : 10%	9
+		낚시		String[] fishlist	// 10개
+			[돌멩이,빈깡통,송사리,붕어,광어,연어,우럭,문어,참돔,참치]
+				0~2 : 60%	0 1 2 3 4 5
+				3~6 : 30%	6 7 8
+				7~9 : 10%	9
+			= 랜덤 수 0~9(10)
+	기능
+		메뉴		menu()
+		채집하기		collecting()	// 채집물 발견 → 채집 성공(70%)/실패(30%)
+		낚시하기		fishing()		// 물고기 발견 → 채집 성공(70%)/실패(30%)
+▶(나) : 상점 클래스 : Shop
+	ArrayList<Item> item = new ArrayList<>();
+	기능
+		메뉴			menu()
+		상점 물품 조회		shopList()
+		상점 물품 구매		shoping()
+		상점 물품 가격 수정	shopPriceMod()
+		상점 물품 삭제		shopDel()
+▶(나) : 물품 클래스 : Item
+	변수
+		물품 이름		String oname
+		물품 가격		int oprice
+	메서드
+		public void itemList() {
+			System.out.println("진열 품목명 : " + oname + " / 가격 : " + oprice); }
