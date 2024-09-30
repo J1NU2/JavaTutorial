@@ -209,6 +209,7 @@ public class Active {
 		
 		System.out.println("\n낚시 하는 중...");
 		sleep.Sleep();
+		
 		if (iname.equals(fishList[0]) || iname.equals(fishList[1])) {
 			// 만약 채집한 아이템이 돌멩이, 빈깡통이라면 확률에 관계 없이 무조건 발견
 			System.out.println("\n이게 뭐야.. " + iname + "(이)잖아..");
