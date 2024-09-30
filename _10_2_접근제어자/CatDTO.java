@@ -8,20 +8,24 @@ public class CatDTO {
 	private String name = null;
 	private int age = 1;
 	
+	// 이름을 인출(조회)하는 메서드
 	public String getName() {
 		return name;
 	}
+	// 이름을 저장하는 메서드
 	public void setName(String name) {
 		chkName(name);
 		this.name = name;
 	}
-	private void chkName(String name2) {
-		// TODO Auto-generated method stub
+	// 이름 체크를 위한 메서드
+	private void chkName(String name) {
 		
 	}
+	// 나이를 인출(조회)하는 메서드
 	public int getAge() {
 		return age;
 	}
+	// 나이를 저장하는 메서드
 	public void setAge(int age) {
 		this.age = age;
 	}
