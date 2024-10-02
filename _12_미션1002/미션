@@ -1,0 +1,92 @@
+제목 :  수강신청프로그램
+학생이 있다. 학생은 아이디, 이름, 전화번호, 학년의 정보를 갖는다.
+교과목이 있다. 과목은 과목명, 강의실, 담당교수가 있다. 
+
+1. 학생을 등록할 수 있다. <선택> 아이디는 중복될 수 없다.
+2. 학생을 이름으로 검색할 수 있다. 동일한 이름이 모두 검색된다.
+  <선택> 검색어가 이름에 포함되면 모두 검색한다.
+3. 학생을 삭제 할 수 있다. 학생의 아이디로 입력하여 삭제 한다. 
+4. <선택> 학생은 10명 까지만 등록할 수 있다. **단, 배열은 사용하지 않는다.
+5. 교과목을 등록할 수 있다. <선택> 과목명은 중복 될 수 없다.
+6. 교과목 전체리스트를 확인 할 수 있다.
+7. 학생의 전체리스트를 확인 할 수 있다.
+8. 메인 메뉴는 학생관리, 교과목관리이다.   <선택> 로그인이 있다.
+9. <로그인 기능 선택> 로그인을 하면 수강신청 메뉴와 신청리스트 메뉴가 나온다.
+10. 학생의 전체리스트를 확인 할 때, 수강 신청한 과목의 수를 숫자로 표시한다.
+
+
+
+▶ 프로그램의 시작을 위한 클래스 : Main
+▶ 수강신청프로그램을 관리할 클래스 : CourseManager
+	메서드
+		메뉴 선택 메서드 : private void menu()
+		학생관리 메뉴 이동을 위한 메서드 : private void studentMenu()
+		교과목관리 메뉴 이동을 위한 메서드 : private void subjectMenu()
+▶ 학생 하나의 정보를 위한 클래스 : StudentOne
+	멤버변수
+		아이디	stId
+		이름	stName
+		전화번호	stPhone
+		학년	stGrade
+	메서드
+		학생의 정보를 출력하는 메서드 : public void stuOne()
+		학생의 정보를 저장하는 메서드 : public void setStudent(String id, String name, String phone, String grade)
+		학생의 아이디를 조회하는 메서드 : public String getID()
+		학생의 이름을 조회하는 메서드 : public String getName()
+▶ 학생 등록, 검색, 삭제, 전체보기 기능을 위한 클래스 : StudentManager
+	리스트
+		ArrayList<StudentOne> student = new ArrayList<>();
+	상수
+		private final int STUDENTLIMITED = 10;
+	메서드
+		메뉴 선택 메서드 : public void menu()
+		학생 등록을 위한 메서드 : private void stuAdd()
+			아이디를 기준으로 중복 방지
+		아이디 중복 검사를 위한 메서드 : private int studentCheckID(String id)
+		학생 검색을 위한 메서드 : private void stuSel()
+			학생 검색 시 동일한 이름 모두 검색
+			검색어에 이름이 포함되면 모두 검색
+		학생 검색 시 검색한 이름이 있는지 검사하는 메서드 : private boolean studentCheckNameSelect(String name)
+		이름으로 검색한 학생의 정보를 출력하는 메서드 : private void studentCheckNameSelectList(String name)
+		학생 삭제를 위한 메서드 : private void stuDel()
+			학생의 아이디로 입력하여 삭제
+		아이디로 검색한 학생의 정보를 출력하는 메서드 : private void studentCheckIDSelectList(String name)
+		학생 전체보기를 위한 메서드 : private void stuAllList()
+			학생 전체를 확인할 때 수강 신청한 과목의 수 표시
+▶ 교과목 하나의 정보를 위한 클래스 : SubjectOne
+	멤버변수
+		과목명	sbName
+		강의실	sbClass
+		담당교수	sbProfe
+	메서드
+		교과목의 정보를 출력할 메서드 : public void subOne()
+		교과목의 정보를 저장할 메서드 : public void setSubject(String name, String classroom, String professor)
+		교과목의 이름을 조회하는 메서드 : public String getName()
+▶ 교과목 등록, 전체보기 기능을 위한 클래스 : SubjectManager
+	리스트
+		ArrayList<SubjectOne> subject = new ArrayList<>();
+	메서드
+		메뉴 선택 메서드 : public void menu()
+		교과목 등록을 위한 메서드 : private void subAdd()
+			교과목 등록 시 과목명 중복 방지
+		과목명 중복 방지를 위한 메서드 : private boolean subjectCheckName(String name)
+		교과목 전체보기를 위한 메서드 : private void subAllList()
+
+
+
+
+
+자바 기술 Stack
+1. 변수 - 원시변수와 참조변수
+2. 자료형
+3. 조건문
+4. 반복문
+5. class와 객체, 생성자
+6. class 추상화
+7. 메서드 정의와 호출
+8. 접근제어자
+9. 공용변수 static
+10. 상수 : final
+11. List자료형 중 ArrayList
+12. JVM
+13. 싱글톤 디자인 패턴
