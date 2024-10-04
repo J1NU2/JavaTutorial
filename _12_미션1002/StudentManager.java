@@ -68,7 +68,7 @@ public class StudentManager {
 			System.out.print("▷ 아이디 : ");
 			String id = in.nextLine();
 			
-			if (studentCheckID(id) == -1) {
+			if (studentCheckID(id) != -1) {
 				System.out.println("\n중복된 아이디가 존재합니다.");
 			} else {
 				System.out.println("\n▷ 이름을 입력해주세요.");
@@ -81,8 +81,13 @@ public class StudentManager {
 					String check = in.nextLine();
 					if (check.equals("y") || check.equals("Y")) {
 						while (true) {
-							System.out.println("\n▷ 핸드폰 번호를 입력해주세요.");
-							System.out.println("▷ 입력 양식 : 010-1234-5678");
+							System.out.println("\n--------------- 입력 양식 ---------------");
+							System.out.println("☆ 앞자리 : 010 011 016 017 018 019");
+							System.out.println("☆ 뒷자리 : 3자리or4자리 / 4자리");
+							System.out.println("☆ 구분자 '-'를 꼭 사용해주세요.");
+							System.out.println("☆ 예시) 010-1234-5678 or 011-123-4567");
+							System.out.println("--------------------------------------");
+							System.out.println("▷ 핸드폰 번호를 입력해주세요.");
 							System.out.print("▷ 핸드폰 번호 : ");
 							phone = in.nextLine();
 							
