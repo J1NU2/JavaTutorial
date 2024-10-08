@@ -157,7 +157,7 @@ public class Food {
 				try {
 					conn.close();
 					// System.out.println("커넥션 자원 반납 성공");
-					System.out.println("Connection Resources Retrun Success");
+					System.out.println("Connection Resources Return Success");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -226,7 +226,7 @@ public class Food {
 				try {
 					conn.close();
 					// System.out.println("커넥션 자원 반납 성공");
-					System.out.println("Connection Resources Retrun Success");
+					System.out.println("Connection Resources Return Success");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -298,7 +298,7 @@ public class Food {
 				try {
 					conn.close();
 					// System.out.println("커넥션 자원 반납 성공");
-					System.out.println("Connection Resources Retrun Success");
+					System.out.println("Connection Resources Return Success");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -342,28 +342,11 @@ public class Food {
 				try {
 					conn.close();
 					// System.out.println("커넥션 자원 반납 성공");
-					System.out.println("Connection Resources Retrun Success");
+					System.out.println("Connection Resources Return Success");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
