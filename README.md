@@ -30,3 +30,4 @@
 > - 24.10.02 : Java Static
 > - 24.10.04 : Java File, Buffer 연습
 > - 24.10.07 : Java 예외처리, DB연동
+> - 24.10.08 : Java DTO/DAO, 싱글톤
