@@ -1,0 +1,21 @@
+0. 개발준비단계
+　- 빌드... 무엇을? 오라클 라이브러리를 빌드, 확장자는 JAR
+　- IDE : 이클립스
+　- DBMS : Oracle 11g r2
+　- 언어 : Java 1.8
+　- 라이브러리 : ojdbc6.jar
+　- DB Tool : SQL Developer
+
+1. 주제와 테이블 정의
+　- 주제 : 물고기의 아이디와 비밀번호 저장
+　- Table : fishdata
+　- column : id VARCHAR2(8), pwd VARCHAR2(4), indate TIMESTAMP DEFAULT SYSDATE
+
+2. 구현 기능 정의
+　- 등록		담당 : OOO	날짜 : 241008
+　- 수정		담당 : OOO	날짜 : 241008
+　- 삭제		담당 : OOO	날짜 : 241008
+　- 전체보기	담당 : OOO	날짜 : 241008
+　- 자세히보기	담당 : OOO	날짜 : 241008
+
+3. 패키지(Package) 분할하기 : Main, DTO, Service, DAO
